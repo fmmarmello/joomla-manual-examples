@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="5.0" client="administrator" method="upgrade">
+
+    <name>com_vdeditoribge</name>
+    <author>Felipinho + Jules AI</author>
+    <creationDate>October 2023</creationDate>
+    <copyright>Copyright (C) 2023 Jules AI. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>ai@example.com</authorEmail>
+    <authorUrl>www.example.com</authorUrl>
+    <version>2.0.0</version>
+    <description>COM_VDEDITORIBGE_DESCRIPTION_J5</description>
+
+    <namespace path="Administrator">IBGE\Component\VdEditorIbge\Administrator</namespace>
+
+    <scriptfile>script.php</scriptfile>
+
+    <!-- Arquivos e pastas principais do componente -->
+    <!-- Estes serão copiados para a raiz do componente durante a instalação -->
+    <files folder="src"> <!-- Inclui toda a pasta src/ no pacote -->
+        <folder>Administrator</folder> <!-- Copia a pasta Administrator e seu conteúdo -->
+        <filename>index.html</filename> <!-- Copia o src/index.html -->
+    </files>
+    <files folder="site"> <!-- Pasta site, mesmo que mínima -->
+        <filename>index.html</filename>
+    </files>
+     <files folder="services"> <!-- Pasta services -->
+        <filename>provider.php</filename>
+        <filename>index.html</filename>
+    </files>
+
+    <administration>
+        <menu text="COM_VDEDITORIBGE_MENU_J5" img="class:list-ul">COM_VDEDITORIBGE_MENU_J5</menu>
+        <!-- Arquivos e pastas que vão para administrator/components/com_vdeditoribge/ -->
+        <!-- A tag 'folder' aqui se refere à pasta de origem no ZIP. -->
+        <!-- O Joomla colocará o conteúdo de 'administrator' do ZIP em administrator/components/com_vdeditoribge/ -->
+        <files folder="administrator">
+            <folder>forms</folder>
+            <folder>js</folder>
+            <folder>language</folder>
+            <folder>sql</folder>
+            <folder>tmpl</folder>
+            <filename>index.html</filename> <!-- index.html da raiz de administrator/ no ZIP -->
+        </files>
+        <languages folder="administrator/language"> <!-- Caminho relativo à pasta 'administrator' definida acima -->
+            <language tag="pt-BR">pt-BR/pt-BR.com_vdeditoribge.ini</language>
+            <language tag="pt-BR">pt-BR/pt-BR.com_vdeditoribge.sys.ini</language>
+        </languages>
+    </administration>
+
+    <!-- Service Providers -->
+    <services>
+        <provider>services/provider.php</provider>
+    </services>
+
+</extension>
