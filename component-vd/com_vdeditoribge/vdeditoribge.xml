@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="component" version="5.0" client="administrator" method="upgrade">
+<extension type="component" version="5.0" method="upgrade"> <!-- Removido client="administrator", version="5.0" mantido por enquanto -->
 
     <name>com_vdeditoribge</name>
     <author>Felipinho + Jules AI</author>
@@ -8,49 +8,64 @@
     <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
     <authorEmail>ai@example.com</authorEmail>
     <authorUrl>www.example.com</authorUrl>
-    <version>2.0.0</version>
+    <version>2.0.0</version> <!-- Mantido, pode ser incrementado após as correções -->
     <description>COM_VDEDITORIBGE_DESCRIPTION_J5</description>
 
-    <namespace path="Administrator">IBGE\Component\VdEditorIbge\Administrator</namespace>
+    <!-- Namespace principal apontando para a pasta src que conterá o código do componente (Site e Administrator) -->
+    <namespace path="src">IBGE\Component\VdEditorIbge</namespace>
 
-    <scriptfile>script.php</scriptfile>
+    <scriptfile>script.php</scriptfile> <!-- Mantido, verificar se o script ainda é necessário e funciona com a nova estrutura -->
 
-    <!-- Arquivos e pastas principais do componente -->
-    <!-- Estes serão copiados para a raiz do componente durante a instalação -->
-    <files folder="src"> <!-- Inclui toda a pasta src/ no pacote -->
-        <folder>Administrator</folder> <!-- Copia a pasta Administrator e seu conteúdo -->
-        <filename>index.html</filename> <!-- Copia o src/index.html -->
-    </files>
-    <files folder="site"> <!-- Pasta site, mesmo que mínima -->
-        <filename>index.html</filename>
-    </files>
-     <files folder="services"> <!-- Pasta services -->
-        <filename>provider.php</filename>
-        <filename>index.html</filename>
-    </files>
-
+    <!-- Arquivos do Lado Administrador -->
+    <!-- Estes arquivos estarão em administrator/components/com_vdeditoribge/ no pacote ZIP -->
     <administration>
         <menu text="COM_VDEDITORIBGE_MENU_J5" img="class:list-ul">COM_VDEDITORIBGE_MENU_J5</menu>
-        <!-- Arquivos e pastas que vão para administrator/components/com_vdeditoribge/ -->
-        <!-- A tag 'folder' aqui se refere à pasta de origem no ZIP. -->
-        <!-- O Joomla colocará o conteúdo de 'administrator' do ZIP em administrator/components/com_vdeditoribge/ -->
-        <files folder="administrator">
-            <folder>forms</folder>
-            <folder>js</folder>
-            <folder>language</folder>
-            <folder>sql</folder>
-            <folder>tmpl</folder>
-            <filename>index.html</filename> <!-- index.html da raiz de administrator/ no ZIP -->
+        <files folder="administrator/components/com_vdeditoribge">
+            <!-- O conteúdo de 'src' aqui refere-se a administrator/components/com_vdeditoribge/src no ZIP -->
+            <!-- que irá para administrator/components/com_vdeditoribge/src/ no Joomla -->
+            <!-- Contém Controllers, Models, Views, Tables específicas do Admin -->
+            <folder>src</folder>
+            <folder>forms</folder> <!-- XMLs de formulários do admin -->
+            <folder>sql</folder> <!-- Arquivos SQL para instalação/atualização -->
+            <folder>services</folder> <!-- Service provider do admin -->
+            <folder>tmpl</folder> <!-- Templates das views do admin -->
+            <!-- index.html e outros arquivos na raiz de administrator/components/com_vdeditoribge/ se houver -->
         </files>
-        <languages folder="administrator/language"> <!-- Caminho relativo à pasta 'administrator' definida acima -->
+        <languages folder="administrator/language"> <!-- Caminho relativo à raiz do pacote ZIP -->
+            <language tag="en-GB">en-GB/en-GB.com_vdeditoribge.ini</language>
+            <language tag="en-GB">en-GB/en-GB.com_vdeditoribge.sys.ini</language>
             <language tag="pt-BR">pt-BR/pt-BR.com_vdeditoribge.ini</language>
             <language tag="pt-BR">pt-BR/pt-BR.com_vdeditoribge.sys.ini</language>
         </languages>
     </administration>
 
-    <!-- Service Providers -->
-    <services>
-        <provider>services/provider.php</provider>
-    </services>
+    <!-- Arquivos do Lado Site (Componente Principal) -->
+    <!-- Estes arquivos estarão em components/com_vdeditoribge/ no pacote ZIP -->
+    <files folder="components/com_vdeditoribge">
+        <!-- O conteúdo de 'src' aqui refere-se a components/com_vdeditoribge/src no ZIP -->
+        <!-- que irá para components/com_vdeditoribge/src/ no Joomla -->
+        <!-- Contém Controllers, Models, Views, Helpers específicas do Site -->
+        <folder>src</folder>
+        <folder>forms</folder> <!-- XMLs de formulários do site, se houver -->
+        <folder>tmpl</folder> <!-- Templates das views do site -->
+        <!-- index.html e outros arquivos na raiz de components/com_vdeditoribge/ se houver -->
+    </files>
+
+    <!-- Arquivos de Mídia -->
+    <media destination="com_vdeditoribge" folder="media/com_vdeditoribge">
+        <filename>joomla.asset.json</filename>
+        <folder>js</folder>
+        <!-- <folder>css</folder> -->
+        <!-- <folder>images</folder> -->
+    </media>
+
+    <!-- Service Providers (se o provider for global ou do site) -->
+    <!-- Se o provider.php for específico do admin, ele já foi declarado em <administration> <files> <folder>services</folder> </files> -->
+    <!-- Se houver um provider para o site, seria algo como: -->
+    <!-- <services folder="components/com_vdeditoribge/services"> -->
+    <!--    <provider>provider.php</provider> -->
+    <!-- </services> -->
+    <!-- Por enquanto, vamos assumir que o provider original era para o admin -->
+    <!-- e já está coberto pela seção <administration> -->
 
 </extension>
