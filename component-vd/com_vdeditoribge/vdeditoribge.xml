@@ -45,9 +45,10 @@
         <!-- O conteúdo de 'src' aqui refere-se a components/com_vdeditoribge/src no ZIP -->
         <!-- que irá para components/com_vdeditoribge/src/ no Joomla -->
         <!-- Contém Controllers, Models, Views, Helpers específicas do Site -->
-        <folder>src</folder>
-        <folder>forms</folder> <!-- XMLs de formulários do site, se houver -->
-        <folder>tmpl</folder> <!-- Templates das views do site -->
+        <filename>index.html</filename> 
+        <!-- <folder>src</folder> -->
+        <!-- <folder>forms</folder> XMLs de formulários do site, se houver -->
+        <!-- <folder>tmpl</folder> Templates das views do site -->
         <!-- index.html e outros arquivos na raiz de components/com_vdeditoribge/ se houver -->
     </files>
 

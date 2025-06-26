@@ -1,0 +1,15 @@
+{
+    "name": "com_vdeditoribge",
+    "version": "2.0.0",
+    "description": "Assets for VD Editor IBGE Component",
+    "license": "GPL-2.0-or-later",
+    "assets": [
+      {
+        "name": "com_vdeditoribge.filter-helper",
+        "type": "script",
+        "uri": "com_vdeditoribge/js/filter-helper.js",
+        "dependencies": ["core"],
+        "attributes": {"defer": true}
+      }
+    ]
+  }
