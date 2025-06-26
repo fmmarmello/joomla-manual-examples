@@ -31,9 +31,8 @@
             <folder>tmpl</folder> <!-- Templates das views do admin -->
             <!-- index.html e outros arquivos na raiz de administrator/components/com_vdeditoribge/ se houver -->
         </files>
-        <languages folder="administrator/language"> <!-- Caminho relativo à raiz do pacote ZIP -->
-            <language tag="en-GB">en-GB/en-GB.com_vdeditoribge.ini</language>
-            <language tag="en-GB">en-GB/en-GB.com_vdeditoribge.sys.ini</language>
+        <languages folder="administrator/components/com_vdeditoribge/language"> <!-- Caminho relativo à raiz do pacote ZIP -->
+            <language tag="en-GB">en-GB/en-GB.com_vdeditoribge.ini</language>            
             <language tag="pt-BR">pt-BR/pt-BR.com_vdeditoribge.ini</language>
             <language tag="pt-BR">pt-BR/pt-BR.com_vdeditoribge.sys.ini</language>
         </languages>
