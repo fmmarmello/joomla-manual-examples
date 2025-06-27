@@ -11,8 +11,8 @@
     <version>2.0.0</version> <!-- Mantido, pode ser incrementado após as correções -->
     <description>COM_VDEDITORIBGE_DESCRIPTION_J5</description>
 
-    <!-- Namespace principal apontando para a pasta src que conterá o código do componente (Site e Administrator) -->
-    <namespace path="src">IBGE\Component\VdEditorIbge</namespace>
+    <!-- Namespace principal apontando para a pasta src que conterá o código do componente (Administrator) -->
+    <namespace path="administrator/components/com_vdeditoribge/src">IBGE\Component\VdEditorIbge\Administrator</namespace>
 
     <scriptfile>script.php</scriptfile> <!-- Mantido, verificar se o script ainda é necessário e funciona com a nova estrutura -->
 
